@@ -1,0 +1,56 @@
+<div class = "container">
+  <div class="navbar-lewagon">
+    <!-- displayed on laptops -->
+    <div class="navbar-lewagon-actions d-none d-sm-flex">
+      <a><%= link_to "Back to list", restaurants_path %></a>
+
+      <div class="dropdown">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+          </div>
+       </div>
+    </div>
+
+    <!-- displayed on phone / tablet -->
+    <div class="navbar-lewagon-actions d-block d-sm-none">
+      <div class="dropdown">
+        <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <a href="#" class="dropdown-item"><i class="fas fa-home"></i> Browse flats</a>
+          <a href="#" class="dropdown-item"><i class="fas fa-comments"></i> Messages <span class="badge badge-pill badge-secondary text-white">5</span></a>
+          <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container-test">
+  <h1><%= @restaurant.name %></h1>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+  <p><%= @restaurant.category %></p>
+  <div class="btn btn-link"><%= link_to "Edit this restaurant", edit_restaurant_path %></div>
+  <div class="btn btn-link"><%= link_to "Delete", restaurant_path(@restaurant),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %></div>
+  <div class="btn btn-link"><%= link_to "Back to list", restaurants_path %></div>
+  <div class="btn btn-link"><%= link_to "Add a review", new_restaurant_review_path(@restaurant.id) %></div>
+
+  <h1>Reviews</h1>
+  <div class="card">
+  <% @restaurant.reviews.each do |review|  %>
+    <div class="card-inside">
+        <h2><%= review.content %></h2>
+        <p><%= review.rating %></p>
+    </div>
+  <%end %>
+
+</div>
+
+
+</div>
+

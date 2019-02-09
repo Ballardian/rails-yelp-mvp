@@ -1,0 +1,19 @@
+<%= simple_form_for @restaurant do |f| %>
+  <div class="form-group">
+    <%= f.input :name, label: 'Name', placeholder: 'George' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :address, label: 'Address', placeholder: 'Never never land' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :phone_number, label: 'Phone number',placeholder: '0113' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :category, label: 'Category', placeholder: 'Really great guy' %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
